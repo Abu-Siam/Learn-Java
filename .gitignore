@@ -1,6 +1,7 @@
 # Compiled class file
 *.class
-
+.idea
+learn java.iml
 # Log file
 *.log
 
