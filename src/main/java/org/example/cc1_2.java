@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 import static java.util.Arrays.sort;
 
@@ -45,5 +46,30 @@ public class cc1_2 {
         }
         System.out.println();
         return true;
+    }
+
+
+}
+
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if(strs.length == 1 || strs[0].equals("")){
+            return strs[0];
+        }
+        Arrays.sort(strs, Comparator.comparingInt(String::length));
+        for(int i = 1; i<strs.length;i++ ){
+            if(strs[0].charAt(0) != strs[i].charAt(0)){
+                return "";
+            }
+        }
+        String result = "";
+        for(int i =0;i<strs.length;i++){
+            for(int j = 0;j<strs[0].length();j++){
+                if(strs[0].charAt(j) == strs[i].charAt(j)){
+                    result+= strs[0].charAt(j);
+                }
+            }
+        }
+        return result;
     }
 }
